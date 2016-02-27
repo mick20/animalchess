@@ -52,19 +52,20 @@
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
+    
     CGContextSetLineWidth(context, 2.0);
     
     CGFloat gap = self.bounds.size.height / 10;
     CGRect edgeRect = CGRectInset(self.bounds, gap, gap);
     UIBezierPath *OvalPath = [UIBezierPath bezierPathWithOvalInRect:edgeRect];
     [OvalPath addClip];
-        CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
+    CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
     if (self.player == 0) {
-       // [[UIColor blackColor] setStroke];
-            CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
+        // [[UIColor blackColor] setStroke];
+        CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
     } else {
-      //  [[UIColor redColor] setStroke];
-            CGContextSetStrokeColorWithColor(context, [UIColor redColor].CGColor);
+        //  [[UIColor redColor] setStroke];
+        CGContextSetStrokeColorWithColor(context, [UIColor redColor].CGColor);
     }
     
     //[OvalPath stroke];
@@ -75,11 +76,11 @@
     if (self.chosen) {
         UIBezierPath *mask = [UIBezierPath bezierPathWithOvalInRect:edgeRect];
         [mask addClip];
-        UIColor *maskColor = [UIColor colorWithRed:0.4 green:0.5 blue:0.1 alpha:0.1];
+        UIColor *maskColor = [UIColor colorWithRed:1 green:1 blue:0 alpha:0.1];
         [maskColor setFill];
         [mask fill];
     }
-    
+
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.alignment = NSTextAlignmentCenter;
     
@@ -90,30 +91,26 @@
     CGRect textBounds;
     textBounds.origin = CGPointMake(edgeRect.origin.x + (edgeRect.size.width - text.size.width) / 2,
                                     edgeRect.origin.y + edgeRect.size.height - text.size.height);
-
+    
     textBounds.size = [text size];
+    
+
     CGRect smallOvalRect = CGRectInset(textBounds, - textBounds.size.width / 10, - textBounds.size.height / 10);
     smallOvalRect.origin.y = smallOvalRect.origin.y - textBounds.size.height / 10 / 2;
     CGContextSetLineWidth(context, 1.0);
     CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
     CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
-   // [smallOvalpath stroke];
+    // [smallOvalpath stroke];
     CGContextAddEllipseInRect(context, smallOvalRect);
     CGContextDrawPath(context, kCGPathFillStroke);
     [text drawInRect:textBounds];
-    if (self.player == 0) {
-        //transform
-
-        NSLog(@"originX : %f, Y : %f", self.bounds.size.width, self.bounds.size.height);
-        CGContextTranslateCTM(context, self.bounds.size.width,
-                              self.bounds.size.height);
-        CGContextRotateCTM(context, M_PI);
-
-    }
+    
     CGContextSetLineWidth(context, 2.0);
-            CGContextSetFillColorWithColor(context, [UIColor clearColor].CGColor);
+    CGContextSetFillColorWithColor(context, [UIColor clearColor].CGColor);
+
     if (self.player == 0) {
         // [[UIColor blackColor] setStroke];
+        
         CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
     } else {
         //  [[UIColor redColor] setStroke];
