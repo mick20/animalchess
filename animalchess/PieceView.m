@@ -72,7 +72,11 @@
     CGContextAddEllipseInRect(context, edgeRect);
     CGContextDrawPath(context, kCGPathFillStroke);
     
-    
+    UIImage *faceImage = [UIImage imageNamed:[self getPieceString]];
+    if (faceImage) {
+        CGRect imageRect = CGRectInset(edgeRect, 0, 0);
+        [faceImage drawInRect:imageRect];
+    }
     if (self.chosen) {
         UIBezierPath *mask = [UIBezierPath bezierPathWithOvalInRect:edgeRect];
         [mask addClip];

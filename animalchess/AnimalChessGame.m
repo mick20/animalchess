@@ -263,7 +263,7 @@
                 result = [self checkIfChosenPiece:self.chosenPiece canBeMoveToRow:row andColumn:column];
             }
             
-        } else if ([gridCell.cellType isEqualToString:@"Lair"]) {
+        } else if ([gridCell.cellType isEqualToString:@"Lair"] && gridCell.player != self.chosenPiece.player) {
             self.winner = self.currentPlayer;
             result = YES;
         }
@@ -316,7 +316,7 @@
     }
     
     if (result) {
-        NSLog(@"Action!!!");
+       // NSLog(@"Action!!!");
         self.chosenPiece = nil;
         if (self.currentPlayer == 0) {
             self.currentPlayer = 1;

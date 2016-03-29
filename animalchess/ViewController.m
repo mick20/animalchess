@@ -48,7 +48,7 @@
 {
     
     id restartString = [[NSUserDefaults standardUserDefaults] valueForKey:@"restart"];
-    if (self.gridView.message){
+    if (self.gridView.message) {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"游戏结束"
                                                                    message:self.gridView.message
                                                             preferredStyle:UIAlertControllerStyleAlert];
@@ -59,8 +59,8 @@
                                                    }];
     [alert addAction:action];
     [self presentViewController:alert animated:YES completion:nil];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"message"];
-    } if ([restartString isEqualToString:@"restart"]) {
+     //       [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"winner"];
+    } else if ([restartString isEqualToString:@"restart"]) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
                                                                        message:@"重新开始一局游戏"
                                                                 preferredStyle:UIAlertControllerStyleAlert];

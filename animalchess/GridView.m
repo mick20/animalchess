@@ -138,13 +138,13 @@ typedef struct {
         [self calculateGridForSize:size];
     }
     
-    //棋盘,考虑放置背景图片
+    //棋盘白色背景,也可以放置背景图片
     UIColor *bgColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"water"]];
     [self setBackgroundColor:bgColor];
-
+    
     [[UIColor whiteColor] setFill];
     UIRectFill(self.bounds);
-        [self drawRestartButton];
+    [self drawRestartButton];
     
     for (NSUInteger row = 0; row < 9; row++) {
         for (NSUInteger column = 0; column < 7; column++) {
@@ -163,12 +163,14 @@ typedef struct {
     CGFloat rectWidth = self.gridRect.origin.x;
     CGFloat rectHeight = self.gridRect.origin.y;
     CGFloat blocklength = MIN(rectHeight, rectWidth);
+
     
-    if (blocklength == rectWidth) {
-        buttonRect = CGRectMake(0, rectHeight - blocklength, rectWidth, rectHeight);
+    if (rectHeight == blocklength) {
+        buttonRect = CGRectMake(rectWidth - blocklength, 0, rectHeight, rectHeight);
     } else {
-        buttonRect = CGRectMake(rectWidth - blocklength, 0, rectWidth, rectHeight);
+        buttonRect = CGRectMake(0, rectHeight - blocklength, rectWidth, rectWidth);
     }
+    
     return buttonRect;
 }
 
@@ -178,7 +180,7 @@ typedef struct {
 
 - (void)drawRestartButton
 {
-    //[text drawInRect:buttonRect withAttributes:@{NSForegroundColorAttributeName : [self tintColor] , }];
+    
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.alignment = NSTextAlignmentCenter;
     
@@ -277,15 +279,15 @@ typedef struct {
         result.column = location.x * 7.0 / _gridRect.size.width;
         result.row = location.y * 9.0 / _gridRect.size.height;
     } else if (CGRectContainsPoint([self restartButtonRect], location)) {
-        result.column = -1;
-        result.row = -1;
+        result.column = -2;
+        result.row = -2;
     }
     return result;
 }
 
 - (void)touchedGridIndex:(GridIndex)gridIndex
 {
-    if (gridIndex.row == -1 && gridIndex.column == -1) {
+    if (gridIndex.row == -2 && gridIndex.column == -2) {
         [[NSUserDefaults standardUserDefaults] setObject:@"restart" forKey:@"restart"];
     }
     if (self.chosenOnePiece == NO) {
@@ -367,6 +369,7 @@ typedef struct {
 - (void)restartGame
 {
     self.game = nil;
+    self.message = nil;
     [self updatePiece];
 }
 
