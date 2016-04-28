@@ -2,4 +2,4 @@ language: objective-c
 osx_image: xcode7.3
 xcode_project: animalchess.xcodeproj
 xcode_scheme: animalchess
-xcode_sdk: iphonesimulator7.0
+xcode_sdk: iphonesimulator
