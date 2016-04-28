@@ -1,4 +1,4 @@
 language: objective-c
 script:
--xctool -project animalchess.xcodeproj -scheme animalchess -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
--xctool test -project animalchess.xcodeproj -scheme animalchess -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  -xctool -project animalchess.xcodeproj -scheme animalchess -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  -xctool test -project animalchess.xcodeproj -scheme animalchess -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
