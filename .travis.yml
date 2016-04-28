@@ -3,4 +3,4 @@ language: objective-c
 xcode_project: animalchess.xcodeproj
 xcode_scheme: animalchess
 xcode_sdk: iphonesimulator
-default_wait_time = 15
+animalchess.default_wait_time = 15
