@@ -20,6 +20,9 @@
     [self.gridView restartGame];
     
 }
+-(void)dosomething{
+    //do nothing. just test
+}
 
 - (GridView *)gridView
 {
