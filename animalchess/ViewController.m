@@ -23,6 +23,9 @@
 -(void)dosomething{
     //do nothing. just test
     //test again;
+    
+    //something will failing!!!
+    //修复错误
 }
 
 - (GridView *)gridView
