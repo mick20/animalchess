@@ -1,3 +1,6 @@
+
+[![Build Status](https://travis-ci.org/mick20/animalchess.svg?branch=master)](https://travis-ci.org/mick20/animalchess)
+
 斗兽棋 for iPad in objective-c
 
 作者：徐豪俊 QQ:66641821
