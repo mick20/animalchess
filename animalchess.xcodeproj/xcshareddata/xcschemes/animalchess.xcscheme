@@ -20,6 +20,34 @@
                ReferencedContainer = "container:animalchess.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0075EC411C4DCD58000F5E81"
+               BuildableName = "animalchessTests.xctest"
+               BlueprintName = "animalchessTests"
+               ReferencedContainer = "container:animalchess.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0075EC4C1C4DCD58000F5E81"
+               BuildableName = "animalchessUITests.xctest"
+               BlueprintName = "animalchessUITests"
+               ReferencedContainer = "container:animalchess.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
