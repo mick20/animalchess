@@ -1,5 +1,1 @@
 language: objective-c
-cache: bundler
-script:
-- xctool -project animalchess.xcodeproj -scheme animalchess -sdk iphoneos 
-- xctool test -project animalchess.xcodeproj -scheme animalchessTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
